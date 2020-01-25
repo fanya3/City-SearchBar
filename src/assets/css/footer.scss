@@ -1,0 +1,31 @@
+@import "../../GlobalStyle";
+
+///////////////////////// TRANSVERSAL //////////////////////////
+
+.FooterContainer {
+    display: block;
+    background-color:$black;
+    color:$grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em 8vw;
+}
+
+.FooterContainer p{
+    font-weight: 300;
+}
+
+
+.FooterLogo {
+    width:100px;
+    height: 40px;
+    margin-right:2em;
+}
+
+
+///////////////////////// RESPONSIVE //////////////////////////
+
+.FooterContainer {
+    height:80px;
+}

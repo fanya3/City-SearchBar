@@ -1,0 +1,25 @@
+@import "../../GlobalStyle";
+
+///////////////////////// TRANSVERSAL //////////////////////////
+
+.HomepageContainer {
+    height:650px;
+    z-index: 0;
+    background-image: linear-gradient(rgba(168, 168, 168, 0.2), rgba(255, 255, 254, 0)), url('../images/homepage-background.jpg');
+    background-repeat:  no-repeat;
+    background-size:  cover;
+    background-position:  top;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.Dino {
+    height:150px;
+    width:auto;
+    bottom: 0;
+    left:5vw;
+    position: absolute;
+}
+
+///////////////////////// RESPONSIVE //////////////////////////
+
