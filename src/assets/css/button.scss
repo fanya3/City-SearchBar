@@ -1,0 +1,13 @@
+@import "../../GlobalStyle";
+
+///////////////////////// TRANSVERSAL //////////////////////////
+
+.Button {
+    color:white;
+    background-color: $green;
+    width:100px;
+    height:40px;
+    border-radius: 0.7em;
+    border: solid 1px $green;
+    align-self: flex-end;
+}

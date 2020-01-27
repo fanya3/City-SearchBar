@@ -1,6 +1,6 @@
 import React from "react";
 import {Switch, Route} from 'react-router-dom'
-import { Navbar, Footer, Card } from "./components/common/";
+import { Navbar, Footer} from "./components/common/";
 import Homepage from './components/pages/Homepage' 
 
 import './_GlobalStyle.scss';

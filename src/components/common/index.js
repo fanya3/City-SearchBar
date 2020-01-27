@@ -1,12 +1,12 @@
 
-// import ButtonClose from './ButtonCancel'
+
 // import ButtonConfirm from './ButtonConfirm'
-// import Card from './Card'
+import Card from './Card'
 import Footer from './Footer'
 import Navbar from './Navbar.js'
-// import SearchBar from './SearchBar'
+import Button from './Button.js'
 
 
 
-export { Footer, Navbar}
+export { Card, Footer, Navbar, Button}
 // export { ButtonClose, ButtonConfirm, Card, Footer, Navbar, SearchBar }

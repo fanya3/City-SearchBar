@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "../../assets/css/navbar.scss";
 
 import LogoTictactrip  from "../../assets/icons/logo-tictactrip.svg";
+import BurgerMenu  from "../../assets/icons/burger-menu.svg";
 
 
 const Navbar = () => {
@@ -18,6 +19,7 @@ const Navbar = () => {
               <li>Top Trajets</li>
               <li>Contact</li>
           </ul>
+          <img className="NavbarBurgerMenu" src={BurgerMenu} alt="Burger Menu"/>
         </div>
       </>
     );
