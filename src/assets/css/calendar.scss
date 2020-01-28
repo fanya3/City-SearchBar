@@ -1,0 +1,21 @@
+@import "../../GlobalStyle";
+
+///////////////////////// TRANSVERSAL //////////////////////////
+
+
+.HourTime {
+    padding:0;
+    display: flex;
+    width:auto;
+    justify-content: space-between;
+    border: solid 1px $lightgrey;
+    flex-wrap: wrap;
+     li {
+         font-size: 0.8em;
+         list-style-type: none;
+         padding: 0.8em;
+         &:hover {
+             background-color: $lightgrey;
+         }
+     }
+}

@@ -3,21 +3,38 @@ import React from "react";
 
   const CityStart = (props) => {
 
-
     const DisplayCityStartData = () => {
-      if ((props.chosenStartCity.length === 0 || props.specificStartCity.length === 0) & props.chosenEndCity.length === 0) {
+
+      if (props.chosenEndCity.length === 0) {
+
+        if ((props.specificStartCity.length === 0)) {
+          return (
+            <>
+              <h5>villes les + populaires</h5>
+              <ul>
+                {props.popularCities && props.popularCities.map((city,i) => (
+                    <li key={i} onClick={() => props.setChosenStartCity(city.unique_name, props.handleChangeInput("cityEnd"))}>
+                      {city.local_name}</li>
+                  ))}
+              </ul>
+            </>
+          );
+      } else if (props.specificStartCity.length > 0) {
         return (
           <>
-            <h5>villes les + populaires</h5>
-            <ul>
-              {props.popularCities && props.popularCities.map((city,i) => (
-                  <li key={i} onClick={() => props.setChosenStartCity(city.unique_name, props.handleChangeInput("cityEnd"))}>
-                    {city.local_name}</li>
-                ))}
+            <h5>ville recherchée</h5>
+            <ul> {props.specificStartCity && props.specificStartCity.map ((city,i) => (
+                (<li key={i} onClick={() => props.setChosenStartCity(city.unique_name, props.handleChangeInput("cityEnd"))}>
+                {city.local_name}</li>)
+                
+            ))}
             </ul>
           </>
         );
-      } else if ((props.chosenStartCity.length === 0 || props.specificStartCity.length === 0) & props.chosenEndCity.length > 0) {
+      }
+    } else if (props.chosenEndCity.length > 0) {
+
+      if ((props.chosenStartCity.length === 0 || props.specificStartCity.length === 0)) {
         return (
           <>
             <h5>villes les + populaires</h5>
@@ -29,7 +46,7 @@ import React from "react";
             </ul>
           </>
         );
-      } else {
+      } else if (props.specificStartCity.length > 0) {
         return (
           <>
             <h5>ville recherchée</h5>
@@ -42,9 +59,9 @@ import React from "react";
           </>
         );
       }
-    };
-
-
+    }}
+      
+   
 
     return (
       <div>
@@ -52,6 +69,7 @@ import React from "react";
       {DisplayCityStartData()}
       </div>
     );
+
   };
 
 

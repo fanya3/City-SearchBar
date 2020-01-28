@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from '../common/'
+
 import "../../assets/css/card.scss";
 import "../../assets/css/button.scss";
 
 
 const Form = props => {
+
   return (
     <>
       <div className="FormContainer">
@@ -12,7 +14,7 @@ const Form = props => {
           <input
             name="cityStart"
             type="text"
-            placeholder="Saississez votre gare de départ"
+            placeholder="Saisissez votre gare de départ"
             onFocus={() => props.handleChangeInput("cityStart")}
             required
             value={props.chosenStartCity}
@@ -22,7 +24,7 @@ const Form = props => {
           <input
             name="cityEnd"
             type="text"
-            placeholder="Saississez votre gare d'arrivée"
+            placeholder="Saisissez votre gare d'arrivée"
             onFocus={() => props.handleChangeInput("cityEnd")}
             required
             value={props.chosenEndCity}
@@ -32,20 +34,20 @@ const Form = props => {
 
           <input
             name="dateStart"
-            type="date"
-            placeholder="Saississez votre date de départ"
+            type="text"
+            placeholder="Saisissez votre date de départ"
             onFocus={() => props.handleChangeInput('dateStart')}
             required
-            onClick = {() => props.handleChangeInput("dateEnd")}
+            value={props.finalStartDate}
             className={props.activeInput === "dateStart" ? "inputActive" : ""}
-          />
+          /> 
           <input
             name="dateEnd"
-            type="date"
-            placeholder="Saississez votre date de retour'"
+            type="text"
+            placeholder="Saisissez votre date de retour"
             onFocus={() => props.handleChangeInput("dateEnd")}
             required
-            onClick = {() => props.handleChangeInput("passenger")}
+            value={props.finalEndDate}
             className={props.activeInput === "dateEnd" ? "inputActive" : ""}
           />
           <input
@@ -54,7 +56,7 @@ const Form = props => {
             placeholder="Renseignez le passager"
             onFocus={() => props.handleChangeInput("passenger")}
             required
-            value="Renseignez le passager"
+            value="1 adulte (26-59 ans)"
             // onChange={validateNewData}
             className={props.activeInput === "passenger" ? "inputActive" : ""}
           />  
