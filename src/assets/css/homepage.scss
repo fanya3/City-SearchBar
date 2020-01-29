@@ -3,30 +3,203 @@
 ///////////////////////// TRANSVERSAL //////////////////////////
 
 .HomepageContainer {
-    height:auto;
-    min-height: 420px;
-    z-index: 0;
-    background-image: linear-gradient(rgba(168, 168, 168, 0.2), rgba(255, 255, 254, 0)), url('../images/homepage-background.jpg');
-    background-repeat:  no-repeat;
-    background-size:  cover;
-    background-position:  top;
-    background-attachment: fixed;
-    position: relative;
-    padding:5em 12vw;
-    display: flex;
+  z-index: 0;
+  background-image: linear-gradient(
+      rgba(168, 168, 168, 0.2),
+      rgba(255, 255, 254, 0)
+    ),
+    url("../images/homepage-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  background-attachment: fixed;
+  position: relative;
 
-    .inputActive {
-        border: 2px solid $green;
+  .welcomeContainer {
+    h1 {
+      margin-top: 0.2em;
+      font-size: 1.9em;
+      font-weight: 600;
+      color: $green;
     }
+    .line {
+      width: 100%;
+      height: 2px;
+      background-color: $green;
+      margin-top: 1em;
+    }
+    h5 {
+      font-weight: 300;
+      color: $black;
+      font-size: 1.3em;
+      margin: 1em 0;
+    }
+  }
+
+  h4 {
+    font-weight: 400;
+    color: $black;
+    font-size: 1.25em;
+    margin: 0.5em 0 1em 0;
+  }
+
+  
+}
+
+.ResultsContainer {
+  width: 100%;
+
+  h5 {
+    color: $green;
+  }
+  .citiesList {
+    width: 100%;
+    background-color: rgba($lightgrey, $alpha: 0.1);
+    border-radius: 0.4em;
+    border: solid 1px rgba($lightgrey, $alpha: 0.6);
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    & :first-child {
+      border: none;
+    }
+    li {
+      list-style-type: none;
+      cursor: pointer;
+      color: $grey;
+      height: 45px;
+      border-top: solid 1px rgba($lightgrey, $alpha: 0.6);
+      font-family: $mainFont;
+      font-size: 0.8em;
+      font-weight: 400;
+      padding-left: 2em;
+      display: flex;
+      align-items: center;
+      &:hover {
+        background-color: rgba($lightgrey, $alpha: 0.6);
+      }
+    }
+
+    .activeCity {
+      background-color: rgba($lightgrey, $alpha: 0.6);
+    }
+  }
+  
 }
 
 .Dino {
-    height:150px;
-    width:auto;
-    bottom: 0;
-    left:5vw;
-    position: absolute;
+  height: 150px;
+  width: auto;
+  bottom: 0;
+  left: 4vw;
+  position: absolute;
+  z-index:30;
 }
 
 ///////////////////////// RESPONSIVE //////////////////////////
 
+@media screen and (min-width: 901px) {
+  .HomepageContainer {
+    padding:5em 12vw;
+    display: flex;
+    height:auto;
+    min-height: 400px;
+    justify-content: space-between;
+  }
+
+  .cardForm {
+    height:auto;
+    min-height: 380px;
+    margin-bottom: 2em;
+    width:45%;
+  }
+
+  .cardResult {
+    height:auto;
+    min-height: 380px;
+    margin-bottom: 2em;
+    width:45%;
+  }
+
+  .cardFormFirst {
+    height:auto;
+    min-height: 380px;
+    margin-bottom: 2em;
+    width:45%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .HomepageContainer {
+    display: flex;
+    position: relative;
+    height:auto;
+    min-height: 630px;
+  }
+
+  
+  .cardForm {
+    height: 450px;
+    width: 88%;
+    max-width: 500px;
+    position:absolute;
+    top: 45%; left: 50%; 
+    transform: translate(-50%, -50%);
+  }
+
+  .cardFormFirst {
+    height: 450px;
+    width: 88%;
+    z-index:30;
+    max-width: 500px;
+    position:absolute;
+    top: 45%; left: 50%; 
+    transform: translate(-50%, -50%);
+  }
+
+  .cardResult {
+    max-width: 500px;
+    height: 450px;
+    width: 88%;
+    position:absolute;
+    top: 45%; left: 50%; 
+    transform: translate(-50%, -50%);
+  }
+}
+
+
+.eachPassenger{
+  
+  border-bottom: solid 1px $grey;
+  display:flex;
+  align-items: center;
+  color:$grey;
+  select {
+    margin-left:2em;
+    font-family: $mainFont;
+    font-size: 1em;
+    font-weight: 400;
+    color:$grey;
+    padding-left: 6px;
+    padding-right: 18px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    text-indent: .01px;
+    border: solid 1px rgba($lightgrey, $alpha: 0.6);
+    text-overflow: '';
+    background-color:#FFF;
+    border-radius: .3125em;
+    width:auto;
+    background-image: url("../../assets/icons/icon-arrow.svg");
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+  
+}
+
+.ButtonAdd {
+  margin-top:2em;
+  display: flex;
+  justify-content: space-between;
+}

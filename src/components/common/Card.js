@@ -7,7 +7,6 @@ const Card = (props) => {
     return (
       <>
         <div className="CardContainer">
-          <h4>{props.title}</h4>
           {props.children}
         </div>
       </>

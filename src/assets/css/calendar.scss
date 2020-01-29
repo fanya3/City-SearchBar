@@ -6,16 +6,29 @@
 .HourTime {
     padding:0;
     display: flex;
-    width:auto;
+    border-radius: 0.4em;
+    width:100%;
+    max-width: 400px;
     justify-content: space-between;
     border: solid 1px $lightgrey;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    margin: 1.5em auto 0 auto;
+
      li {
+         cursor: pointer;
          font-size: 0.8em;
          list-style-type: none;
          padding: 0.8em;
          &:hover {
-             background-color: $lightgrey;
+             border-radius: 0.4em;
+             background-color: rgba($lightgrey, $alpha: 0.5);
          }
+     }
+   
+     .activeHour {
+        background-color: $green;
+        color:white;
+        border-radius: 0.4em;
      }
 }

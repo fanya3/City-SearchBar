@@ -2,13 +2,59 @@
 
 ///////////////////////// TRANSVERSAL //////////////////////////
 
-.Button {
+.ButtonSearch {
     color:white;
     background-color: $green;
-    width:100px;
+    width:auto;
     height:40px;
     border-radius: 0.7em;
     border: solid 1px $green;
-    align-self: flex-end;
-    margin-top: 2em;
+    left:0;
+    cursor: pointer;
+    padding:0 3em;
+}
+
+
+
+.ButtonSwitch {
+    width:30px;
+    height:30px;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    position: absolute;
+    background-color: $green;
+    border-radius: 80%;
+    background-image: url("../../assets/icons/button-switch.svg");
+    top: 30px;
+    right: 15px;
+}
+
+.ButtonGo {
+    width:100%;
+    display: flex;
+    margin-top:3em;
+    justify-content: center;
+}
+
+.ButtonOk {
+    width:100%;
+    max-width: 410px;
+    margin-top:1em;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+
+///////////////////////// RESPONSIVE //////////////////////////
+
+
+@media screen and (min-width: 901px) {
+    .ButtonGo , .ButtonOk{
+        display:none;
+    }
+    
 }

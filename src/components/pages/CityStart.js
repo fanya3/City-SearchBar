@@ -3,6 +3,11 @@ import React from "react";
 
   const CityStart = (props) => {
 
+    const capitalize = (word) => {
+      if (typeof word !== 'string') return ''
+      return word.charAt(0).toUpperCase() + word.slice(1)
+    }
+
     const DisplayCityStartData = () => {
 
       if (props.chosenEndCity.length === 0) {
@@ -11,24 +16,28 @@ import React from "react";
           return (
             <>
               <h5>villes les + populaires</h5>
+              <div className="citiesList">
               <ul>
                 {props.popularCities && props.popularCities.map((city,i) => (
-                    <li key={i} onClick={() => props.setChosenStartCity(city.unique_name, props.handleChangeInput("cityEnd"))}>
+                    <li key={i} className={props.chosenStartCity === capitalize(city.unique_name) ? "activeCity" : ""} onClick={() => props.setChosenStartCity(capitalize(city.unique_name), props.handleChangeInput("cityEnd", props.setActiveScreen(true)))}>
                       {city.local_name}</li>
                   ))}
               </ul>
+              </div>
             </>
           );
       } else if (props.specificStartCity.length > 0) {
         return (
           <>
             <h5>ville recherchée</h5>
+            <div className="citiesList">
             <ul> {props.specificStartCity && props.specificStartCity.map ((city,i) => (
-                (<li key={i} onClick={() => props.setChosenStartCity(city.unique_name, props.handleChangeInput("cityEnd"))}>
+                (<li key={i} className={props.chosenStartCity === capitalize(city.unique_name) ? "activeCity" : ""} onClick={() => props.setChosenStartCity(capitalize(city.unique_name), props.handleChangeInput("cityEnd",props.setActiveScreen(true)))}>
                 {city.local_name}</li>)
                 
             ))}
             </ul>
+            </div>
           </>
         );
       }
@@ -38,24 +47,28 @@ import React from "react";
         return (
           <>
             <h5>villes les + populaires</h5>
+            <div className="citiesList">
             <ul>
               {props.popularCities && props.popularCities.map((city,i) => (
-                  <li key={i} onClick={() => props.setChosenStartCity(city.unique_name, props.handleChangeInput("dateStart"))}>
+                  <li key={i} className={props.chosenStartCity === capitalize(city.unique_name) ? "activeCity" : ""} onClick={() => props.setChosenStartCity(capitalize(city.unique_name), props.handleChangeInput("dateStart", props.setActiveScreen(true)))}>
                     {city.local_name}</li>
                 ))}
             </ul>
+            </div>
           </>
         );
       } else if (props.specificStartCity.length > 0) {
         return (
           <>
             <h5>ville recherchée</h5>
+            <div className="citiesList">
             <ul> {props.specificStartCity && props.specificStartCity.map ((city,i) => (
-                (<li key={i} onClick={() => props.setChosenStartCity(city.unique_name, props.handleChangeInput("dateStart"))}>
+                (<li key={i} className={props.chosenStartCity === capitalize(city.unique_name) ? "activeCity" : ""} onClick={() => props.setChosenStartCity(capitalize(city.unique_name), props.handleChangeInput("dateStart", props.setActiveScreen(true)))}>
                 {city.local_name}</li>)
                 
             ))}
             </ul>
+            </div>
           </>
         );
       }
@@ -64,7 +77,7 @@ import React from "react";
    
 
     return (
-      <div>
+      <div className="ResultsContainer">
       <p>Choix de la ville de départ!</p> 
       {DisplayCityStartData()}
       </div>
