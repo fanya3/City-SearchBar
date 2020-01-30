@@ -1,0 +1,12 @@
+@import "../../GlobalStyle";
+
+///////////////////////// TRANSVERSAL //////////////////////////
+
+.CardContainer {
+    background-color: white;
+    border-radius: 1%;
+    box-shadow: 3px 3px 9px rgba($grey, $alpha: 0.2);
+    margin:auto;
+    padding:1.5em 2em;
+    height:95%;
+}

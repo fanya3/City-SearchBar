@@ -1,0 +1,30 @@
+$green: #22e4ab;
+$black: #1c1e2d;
+$grey:#6b6c72;
+$lightgrey:#d1d1d1;
+
+$mainFont:'Source Sans Pro', sans-serif;
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900&display=swap") ;
+
+:root, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Source Sans Pro', sans-serif;  
+  background-color: white;
+}
+
+.App {
+  width: 100%;
+}
+
+// @mixin ButtonConfirm ($font-size) {
+//   background-color: $black;
+//   color:$black;
+//   font-size:$font-size;
+//   font-weight: 600;
+//   letter-spacing: 0.15em;
+//   padding: 0.2em 0.5em 0.2em 0.7em;
+//   text-shadow: 1.2px 0 0 white, 0 1.2px 0 white, 0 -1.2px 0 white, -1.2px 0 0 white, 1.2px 1.2px 0 white, 1.2px -1.2px 0 white, -1.2px 1.2px 0 white, -1.2px -1.2px 0 white;
+// }
+

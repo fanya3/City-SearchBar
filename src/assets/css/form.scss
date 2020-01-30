@@ -1,0 +1,54 @@
+@import "../../GlobalStyle";
+
+///////////////////////// TRANSVERSAL //////////////////////////
+
+.FormContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+
+  input {
+    width: 96%;
+    border-radius: 0.4em;
+    height: 35px;
+    border: solid 1px rgba($lightgrey, $alpha: 0.6);
+    background-color: rgba($lightgrey, $alpha: 0.1);
+    margin-bottom: 0.5em;
+    font-family: $mainFont;
+    font-size: 0.8em;
+    font-weight: 400;
+    padding-left: 0.9em;
+    color: $black;
+  }
+
+  .inputActive {
+    border: 2px solid $green;
+  }
+
+  .inputPassenger {
+    background-image: url("../../assets/icons/icon-add.svg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: auto 100%;
+  }
+
+  .InputCityGroup,
+  .InputDateGroup {
+    position: relative;
+    margin-bottom: 1.5em;
+  }
+}
+
+.FinalForm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.5em;
+  width: 100%;
+  p {
+    color: $green;
+    font-size: 0.9em;
+    margin: 0;
+  }
+}
