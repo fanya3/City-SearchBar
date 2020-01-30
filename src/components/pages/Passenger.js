@@ -34,17 +34,17 @@ const Passenger = (props) => {
         
         {props.chosenPassenger  && props.chosenPassenger.map( 
           (passenger,i) => (
-        <div className="eachPassenger">
+        <div key = {i} className="eachPassenger">
           <p> Passager {i+1}</p>  
           <select
             className="selectPassenger"
             name="passengerType"
             onChange = {props.validateChosenPassenger}
             id = {i} >
-            <option value ={passenger} selected>{passenger}</option>
+            <option defaultValue ={passenger}>{passenger}</option>
             {passengersTypes
-              .map(data2 => 
-                 (<option value={data2.type} >{data2.type} </option>)
+              .map((data2,i) => 
+                 (<option  key = {i} value={data2.type} >{data2.type} </option>)
               )}
           </select>
           <input type = "button" className ="ButtonDelete" value ="X" style = {props.chosenPassenger.length === 1 ? {display:"none"} : { display:"block"}} onClick = {() => props.deletePassenger(i)}/>
@@ -60,10 +60,10 @@ const Passenger = (props) => {
             name="passengerType"
             onChange = {props.addNewPassenger}
              >
-            <option value ="" selected>Choix du type de passager</option>
+            <option defaultValue ="">Choix du type de passager</option>
             {passengersTypes
-              .map(data2 => 
-                 (<option value={data2.type} >{data2.type} </option>)
+              .map((data2,i )=> 
+                 (<option key = {i} value={data2.type} >{data2.type} </option>)
               )}
           </select>
         </div>     
