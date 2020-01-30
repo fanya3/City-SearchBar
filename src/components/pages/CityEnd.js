@@ -116,7 +116,7 @@ const CityEnd = (props) => {
         return (
           <>
             <h5>
-              Villes les + populaires au départ de {props.chosenStartCity}
+              Villes les plus populaires au départ de {props.chosenStartCity}
             </h5>
             <div className="citiesList">
               <ul>
