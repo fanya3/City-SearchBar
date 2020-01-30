@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import { getSpecificCity, getPopularCities, getCitiesFrom } from './CallApi'
-import { Button, Card } from '../common/'
+import { Card } from '../common/'
 import CityEnd from './CityEnd'
 import CityStart from './CityStart'
 import DateStart from './DateStart'
@@ -12,6 +12,7 @@ import Welcome from './Welcome'
 
 import "../../assets/css/homepage.scss";
 import "../../assets/css/calendar.scss";
+import "../../assets/css/button.scss";
 import DinoTictactrip  from "../../assets/icons/dino-tictactrip.svg";
 
 
@@ -37,9 +38,13 @@ const Homepage = () => {
   const [endTime, setEndTime] = useState("");
 
   const [chosenPassenger, setChosenPassenger] = useState([
-    "adulte (26-59)", "adulte (26-59)"
+    "adulte (26-59)"
   ]);
+  const [newPassenger, setNewPassenger] = useState(false);
   
+
+  let totalPassengers = `${chosenPassenger.length} passager(s)`;
+
 
   ////// change le champ actif 
   const handleChangeInput = value => {
@@ -86,11 +91,23 @@ const Homepage = () => {
   // modification du type de passager
   const validateChosenPassenger = (e) => {
     let i =  e.target.id
-    let modifiedPassenger = chosenPassenger; 
+    let modifiedPassenger = [...chosenPassenger];
     modifiedPassenger[i] = e.target.value;
-    setChosenPassenger([ ...chosenPassenger], modifiedPassenger)
+    setChosenPassenger(modifiedPassenger)
   }
 
+  // ajout d'1 passager
+  const addNewPassenger = (e) => {
+    setChosenPassenger([ ...chosenPassenger, e.target.value])
+    setNewPassenger(false)
+  }
+
+  //suppression d'1 passager
+  const deletePassenger = (i) => {
+    const temporaryPassenger = [...chosenPassenger]
+    temporaryPassenger.splice(i, 1)
+    setChosenPassenger(temporaryPassenger)
+  }
 
 
   
@@ -157,7 +174,6 @@ const onChangeEnd = (date) => {
  }
 
 
-
  
   ////// appelle le component selon le champ actif 
   const getInputContent = () => {
@@ -209,7 +225,12 @@ const onChangeEnd = (date) => {
         activeScreen = {activeScreen}
         setActiveScreen = {setActiveScreen} 
         chosenPassenger = {chosenPassenger}
-        validateChosenPassenger = {validateChosenPassenger}/>;
+        validateChosenPassenger = {validateChosenPassenger}
+        addNewPassenger = {addNewPassenger}
+        setNewPassenger = {setNewPassenger}
+        newPassenger = {newPassenger}
+        deletePassenger = {deletePassenger}
+       />;
       case "welcome":
         return <Welcome 
         setActiveScreen = {setActiveScreen}/>;
@@ -220,11 +241,10 @@ const onChangeEnd = (date) => {
   };
 
 
-
     return (
-
+      
       <>
- 
+      {console.log('chosenPassenger', chosenPassenger)}
         <div className="HomepageContainer">
           <div className={activeScreen ? "cardFormFirst" : "cardForm"}>
           <Card>
@@ -243,6 +263,7 @@ const onChangeEnd = (date) => {
               finalStartDate = {FinalStartDate()}
               finalEndDate = {FinalEndDate()}
               switchCities = {switchCities}
+              totalPassengers = {totalPassengers}
             >
             </Form> 
           </Card>
@@ -254,7 +275,7 @@ const onChangeEnd = (date) => {
             </Card>
           </div>
 
-          <img className="Dino" src={DinoTictactrip} alt="Dino-Tictactrip" />
+          <img className="Dino" src={DinoTictactrip} alt="Dino-Tictactrip"/>
         </div>
       </>
     );

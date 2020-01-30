@@ -6,7 +6,7 @@ import "../../assets/css/button.scss";
 import "../../assets/css/form.scss";
 
 
-const Form = props => {
+const Form = (props) => {
 
   return (
     <>
@@ -58,10 +58,9 @@ const Form = props => {
           <input
             name="passenger"
             type="text"
-            placeholder="Renseignez le passager"
             onFocus={() => props.handleChangeInput("passenger", props.setActiveScreen(false))}
             required
-            value={props.chosenPassenger}
+            value={props.totalPassengers}
             className={`inputPassenger ${props.activeInput === "passenger" ? "inputActive" : ""}`}
             />  
         </form>
