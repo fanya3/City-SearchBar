@@ -1,0 +1,56 @@
+@import "../../GlobalStyle";
+
+///////////////////////// TRANSVERSAL //////////////////////////
+
+.FooterContainer {
+    background-color:$black;
+    color:$grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2em 8vw;
+    height: auto;
+
+    p{
+        font-weight: 300;
+    }
+    
+    .FooterLogo {
+        width:100px;
+        height: 40px;
+    }
+
+    .SocialMediaIcon {
+        width:30px;
+        height:30px;
+    }
+}
+
+
+
+
+///////////////////////// RESPONSIVE //////////////////////////
+
+
+@media screen and (min-width: 901px) {
+    .FooterContainer {
+        flex-direction: row;
+    }
+
+    .FooterLogo {
+        margin-right:4em;
+    }
+    .SocialMediaIcon {
+        margin: 0 1em;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .FooterContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+    .SocialMediaIcon {
+        margin: 1em;
+    }
+}
