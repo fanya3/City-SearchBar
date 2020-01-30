@@ -7,6 +7,8 @@ import LogoTictactrip  from "../../assets/icons/logo-tictactrip.svg";
 import BurgerMenu  from "../../assets/icons/burger-menu.svg";
 
 
+/** NAVBAR | website navbar with logo & main sections */
+
 const Navbar = () => {
     return (
       <>

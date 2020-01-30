@@ -1,16 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import "../../assets/css/card.scss";
+/** CARD | transversal white card to display content
+ * @param {Props} props.children - all content
+ */
 
+const Card = props => {
+  return (
+    <>
+      <div className="CardContainer">{props.children}</div>
+    </>
+  );
+};
 
-const Card = (props) => {
-    return (
-      <>
-        <div className="CardContainer">
-          {props.children}
-        </div>
-      </>
-    );
-  }
-
-  export default Card
+export default Card;

@@ -2,6 +2,29 @@ import React from "react";
 import Calendar from 'react-calendar'
 import { Button } from '../common/'
 
+
+/** DATESTART | display of the dates of departure
+ * @param {Props} props.currentStartDate - date of today, as the minimum date for calendar
+ * 
+ * @param {Props} props.valueStartDate - value of the date of departure for the calendar component
+ * 
+ * @param {Props} props.valueEndDate - value of the date of arrival for the calendar component 
+ * 
+ * @param {Props} props.onChangeStart - specific function of the calendar module to change the date of departure inside
+ * 
+ * @param {Props} props.onChangeEnd - specific function of the calendar module to change the date of arrival inside
+ * 
+ * @param {Props} props.startTime - state with value of the time of departure 
+ * 
+ * @param {Props} props.endTime - state with value of the time of arrival 
+ * 
+ * @param {Props} props.setStartTime - function to set the value of startTime 
+ * 
+ * @param {Props} props.setEndTime - function to set the value of endTime
+ * 
+ * @param {Props} props.setActiveScreen - function to switch on top z-index the active screen (for mobile)
+ * */
+
 const DateStart = (props) => {
     
     return (

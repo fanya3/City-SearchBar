@@ -1,12 +1,19 @@
-import React from 'react';
+import React from "react";
 
 
-const Button = (props) => {
-    return (
-      <>
-        <button type="submit" className="ButtonSearch" onClick={props.onClick}>{props.text}</button>
-      </>
-    );
-  }
+/** BUTTON | transversal button
+ * @param {Props} props.onClick - function with specific action when clicked
+ * * @param {Props} props.text - string for button title
+ */
 
-  export default Button
+const Button = props => {
+  return (
+    <>
+      <button type="submit" className="ButtonGlobal" onClick={props.onClick}>
+        {props.text}
+      </button>
+    </>
+  );
+};
+
+export default Button;

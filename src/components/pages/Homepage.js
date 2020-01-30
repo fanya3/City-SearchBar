@@ -13,8 +13,13 @@ import Welcome from './Welcome'
 import "../../assets/css/homepage.scss";
 import "../../assets/css/calendar.scss";
 import "../../assets/css/button.scss";
+import "../../assets/css/card.scss";
+import "../../assets/css/form.scss";
+
 import DinoTictactrip  from "../../assets/icons/dino-tictactrip.svg";
 
+
+/** HOMEPAGE | Central component to display the homepage */
 
 
 const Homepage = () => {
@@ -46,26 +51,26 @@ const Homepage = () => {
   let totalPassengers = `${chosenPassenger.length} passager(s)`;
 
 
-  ////// change le champ actif 
+
+  /** @param {text} value - change the active input field to display a section */
   const handleChangeInput = value => {
     setActiveInput(value);
   };
 
 
-  ////// récupère les villes les + populaires par défaut au montage du component
+  /**  - set  by default the state with the name of the 5 most popular cities */
   const getDataPopularCities = () => {
     getPopularCities()
     .then(res => (setPopularCities(res)));
   };
   
-  ////// récupère les villes les + populaires selon la ville de départ
+  /**  - set  by default the state with the name of the 5 most popular cities based on a city of departure */
   const getDataCitiesFrom = () => {
     getCitiesFrom(chosenStartCity)
       .then(res => (setCitiesFrom(res)));
   };
       
-
- //// lance la recherche de la ville de départ selon la valeur de l'input
+/**  - set the state with the name the searched city of departure, based on the event and clean th state when name is erased */
   const handleChosenStartCity = e => {
     setChosenStartCity(e.target.value);
     if (e.target.value.length >= 1) {
@@ -76,7 +81,7 @@ const Homepage = () => {
     }
   };
   
-  ////// lance la recherche de la ville d'arrivée selon la valeur de l'input
+  /**  - set the state with the name the searched city of arrival, based on the event and clean th state when name is erased */
   const handleChosenEndCity = e => {
     setChosenEndCity(e.target.value);
     if (e.target.value.length >= 1) {
@@ -88,7 +93,7 @@ const Homepage = () => {
   };
   
 
-  // modification du type de passager
+  /**  - function to modify a passenger */
   const validateChosenPassenger = (e) => {
     let i =  e.target.id
     let modifiedPassenger = [...chosenPassenger];
@@ -96,13 +101,13 @@ const Homepage = () => {
     setChosenPassenger(modifiedPassenger)
   }
 
-  // ajout d'1 passager
+  /**  - function to add a passenger */
   const addNewPassenger = (e) => {
     setChosenPassenger([ ...chosenPassenger, e.target.value])
     setNewPassenger(false)
   }
 
-  //suppression d'1 passager
+  /**  - function to delete a passenger */
   const deletePassenger = (i) => {
     const temporaryPassenger = [...chosenPassenger]
     temporaryPassenger.splice(i, 1)
@@ -110,20 +115,23 @@ const Homepage = () => {
   }
 
 
-  
+  /**  - set the state of popular cities, when component Homepage is mounted */
     useEffect(() => {
       getDataPopularCities()
     },[]);
     
-    
+
+   /**  - defining the current date  */  
     const currentStartDate = new Date()
+        
+   /**  - a function that set the date received from the calendar to be easy to read for user and switch to next input */ 
     const ValidDate = (date, setDate, newInput) => {
       const options = { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' };
       const newDate = date.toLocaleDateString(undefined, options)
       setDate(newDate, handleChangeInput(newInput))
     }
 
- ////// concatène le jour et l'heure de départ
+ /**  - a function that combine the date and the time of departure to displayed on the form */
     const FinalStartDate =  () => {
       if (startTime.length > 0 ) {
       return `${startDate} à partir de ${startTime}`
@@ -131,8 +139,7 @@ const Homepage = () => {
       return startDate
   }
 }
-
- ////// concatène le jour et l'heure d'arrivée
+ /**  - a function that combine the date and the time of arrival to displayed on the form */
   const FinalEndDate =  () => {
     if (endTime.length > 0 ) {
     return `${endDate} à partir de ${endTime}`
@@ -141,8 +148,7 @@ const Homepage = () => {
   }
 }
 
-////// intervertit les villes de départ et d'arrivée
-////// change les champs actifs uniquement si l'utilisateur est sur une des 2 dates
+/**  - function to switch cities of arrival and departure and change active input on cities only if user is on the other date input*/
  const switchCities = () => {
 
     if (chosenStartCity.length > 0 || chosenEndCity.length > 0) {
@@ -164,6 +170,7 @@ const Homepage = () => {
   }
 }
 
+/**  - specific function of the calendar module to change the date of departure inside and in the corresponding state */
 const onChangeStart = (date) => {
  ValidDate(date, setStartDate, "dateStart")
  setValueStartDate(date)
@@ -174,8 +181,7 @@ const onChangeEnd = (date) => {
  }
 
 
- 
-  ////// appelle le component selon le champ actif 
+ /**  - switch case to call the component based on which input of the form is active*/
   const getInputContent = () => {
     switch (activeInput) {
       case "cityStart":
@@ -244,7 +250,6 @@ const onChangeEnd = (date) => {
     return (
       
       <>
-      {console.log('chosenPassenger', chosenPassenger)}
         <div className="HomepageContainer">
           <div className={activeScreen ? "cardFormFirst" : "cardForm"}>
           <Card>

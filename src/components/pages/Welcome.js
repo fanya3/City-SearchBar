@@ -1,9 +1,15 @@
 import React from "react";
-import { Button } from '../common/'
+import { Button } from "../common/"
+
+
+/** WELCOME | Section to welcome users
+* 
+* @param {Props} props.setActiveScreen - function to switch on top z-index the active screen (for mobile)*/
+
 
 const Welcome = (props) => {
   return (
-    <div className="welcomeContainer">
+    <div className="WelcomeContainer">
       <h1>Bienvenue sur tictactrip!</h1>
       <div className="line"></div>
       <h5>Voyagez partout en Europe!</h5>

@@ -1,10 +1,25 @@
 import React from "react";
 import { Button } from '../common/'
-import "../../assets/css/button.scss";
+
+
+
+/** PASSENGER | Section to enter, modify passengers
+* 
+* @param {Props} props.setActiveScreen - function to switch on top z-index the active screen (for mobile)
+
+* @param {Props} props.chosenPassenger - the state with the selected passengers
+
+* @param {Props} props.validateChosenPassenger - function to modify a passenger
+
+* @param {Props} props.deletePassenger - function to delete a passenger
+
+* @param {Props} props.newPassenger - state to display the section to add a passenger
+
+* */
+
 
 const Passenger = (props) => {
 
- 
 
   const passengersTypes = [
     {type: "jeune (0-25)"},
