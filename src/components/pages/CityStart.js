@@ -38,7 +38,7 @@ const CityStart = props => {
       if (props.specificStartCity.length === 0) {
         return (
           <>
-            <h5>villes les + populaires</h5>
+            <h5>Villes les plus populaires</h5>
             <div className="citiesList">
               <ul>
                 {props.popularCities &&
@@ -70,7 +70,7 @@ const CityStart = props => {
       } else if (props.specificStartCity.length > 0) {
         return (
           <>
-            <h5>ville recherchée</h5>
+            <h5>Ville recherchée</h5>
             <div className="citiesList">
               <ul>
                 {" "}
@@ -108,7 +108,7 @@ const CityStart = props => {
       ) {
         return (
           <>
-            <h5>villes les + populaires</h5>
+            <h5>Villes les plus populaires</h5>
             <div className="citiesList">
               <ul>
                 {props.popularCities &&
@@ -140,7 +140,7 @@ const CityStart = props => {
       } else if (props.specificStartCity.length > 0) {
         return (
           <>
-            <h5>ville recherchée</h5>
+            <h5>Ville recherchée</h5>
             <div className="citiesList">
               <ul>
                 {" "}
@@ -176,7 +176,7 @@ const CityStart = props => {
 
   return (
     <div className="ResultsContainer">
-      <p>Choix de la ville de départ!</p>
+      <h4>Choix de la ville de départ!</h4>
       {DisplayCityStartData()}
     </div>
   );
