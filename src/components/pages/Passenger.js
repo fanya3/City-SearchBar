@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Select from 'react-select';
+
 import { Button } from '../common/'
 
 
@@ -22,55 +24,53 @@ const Passenger = (props) => {
 
 
   const passengersTypes = [
-    {type: "jeune (0-25)"},
-    {type: "adulte (26-59)"},
-    {type: "senior (60+)"}
-  ]
- 
+    { value: 'jeune (0-25)', label: 'jeune (0-25)' },
+    { value: 'adulte (26-59)', label: 'adulte (26-59)' },
+    { value: 'senior (60+)', label: 'senior (60+)' },
+  ];
+
+
+  
   return (
     <>
       <h4>Choisissez vos passagers:</h4>
-      <div className="formPassenger">
+      
+        <div className="formPassenger">
         
         {props.chosenPassenger  && props.chosenPassenger.map( 
           (passenger,i) => (
         <div key = {i} className="eachPassenger">
           <p> Passager {i+1}</p>  
-          <select
+          <Select
+            id = {i} 
             className="selectPassenger"
             name="passengerType"
-            onChange = {props.validateChosenPassenger}
-            id = {i} >
-            <option defaultValue ={passenger}>{passenger}</option>
-            {passengersTypes
-              .map((data2,i) => 
-                 (<option  key = {i} value={data2.type} >{data2.type} </option>)
-              )}
-          </select>
+            value={passenger}
+            onChange={props.validateChosenPassenger}
+            options={passengersTypes}
+          />
           <input type = "button" className ="ButtonDelete" value ="X" style = {props.chosenPassenger.length === 1 ? {display:"none"} : { display:"block"}} onClick = {() => props.deletePassenger(i)}/>
         </div>
+        
            )
           ) 
         }
-
+  
         <div className="eachPassenger" style = {props.newPassenger ? {display:"flex"} :{ display:"none"}} >
-          <p> Passager {props.chosenPassenger.length + 1}</p>  
-          <select
-            className="selectPassenger"
-            name="passengerType"
-            onChange = {props.addNewPassenger}
-             >
-            <option defaultValue ="">Choix du type de passager</option>
-            {passengersTypes
-              .map((data2,i )=> 
-                 (<option key = {i} value={data2.type} >{data2.type} </option>)
-              )}
-          </select>
+          <p> Nouveau Passager</p>  
+          <Select
+            className="selectNewPassenger"
+            name="passengerNew"
+            placeholder ="Choix du passager"
+            value={props.selectedOption}
+            onChange={props.addNewPassenger}
+            options={passengersTypes}
+          />
         </div>     
         
         <div className = "ButtonAdd">
           <Button
-            text = "AJOUTER D'AUTRES PASSAGERS"
+            text = "AJOUTER 1 PASSAGER"
             onClick= { () => props.setNewPassenger(true)}
             />
             <div>
