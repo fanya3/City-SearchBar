@@ -42,10 +42,9 @@ const Homepage = () => {
   const [endDate, setEndDate] = useState("");
   const [endTime, setEndTime] = useState("");
 
-  const [chosenPassenger, setChosenPassenger] = useState([
-    "adulte (26-59)"
-  ]);
+  const [chosenPassenger, setChosenPassenger] = useState([]);
   const [newPassenger, setNewPassenger] = useState(false);
+  const [selectedOption, setSelectedOption] = useState("");
   
 
   let totalPassengers = `${chosenPassenger.length} passager(s)`;
@@ -94,23 +93,29 @@ const Homepage = () => {
   
 
   /**  - function to modify a passenger */
-  const validateChosenPassenger = (e) => {
-    let i =  e.target.id
+  const validateChosenPassenger = (i, selectedOption) => {
+    setSelectedOption(selectedOption)
     let modifiedPassenger = [...chosenPassenger];
-    modifiedPassenger[i] = e.target.value;
+    modifiedPassenger[i] = selectedOption;
     setChosenPassenger(modifiedPassenger)
+    setSelectedOption("")
   }
 
   /**  - function to add a passenger */
-  const addNewPassenger = (e) => {
-    setChosenPassenger([ ...chosenPassenger, e.target.value])
+  const addNewPassenger = (selectedOption) => {
+    setSelectedOption(selectedOption)
+    setChosenPassenger([ ...chosenPassenger, selectedOption])
     setNewPassenger(false)
+    setSelectedOption("")
   }
+
 
   /**  - function to delete a passenger */
   const deletePassenger = (i) => {
     const temporaryPassenger = [...chosenPassenger]
     temporaryPassenger.splice(i, 1)
+    console.log(temporaryPassenger);
+    
     setChosenPassenger(temporaryPassenger)
   }
 
@@ -236,6 +241,8 @@ const onChangeEnd = (date) => {
         setNewPassenger = {setNewPassenger}
         newPassenger = {newPassenger}
         deletePassenger = {deletePassenger}
+        selectedOption = {selectedOption}
+        setSelectedOption = {setSelectedOption}
        />;
       case "welcome":
         return <Welcome 

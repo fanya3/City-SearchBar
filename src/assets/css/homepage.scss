@@ -103,25 +103,19 @@
   p {
     font-size: 0.9em;
   }
-  select {
+
+  .selectPassenger, .selectNewPassenger {
     margin-left: 2em;
     font-family: $mainFont;
-    font-size: 0.9em;
+    font-size: 0.8em;
     font-weight: 400;
     color: $grey;
     padding-left: 6px;
     padding-right: 18px;
-    -moz-appearance: none;
-    -webkit-appearance: none;
     text-indent: 0.01px;
-    border: solid 1px rgba($lightgrey, $alpha: 0.6);
-    text-overflow: "";
     background-color: #fff;
     border-radius: 0.3125em;
-    width: auto;
-    background-image: url("../../assets/icons/icon-arrow.svg");
-    background-repeat: no-repeat;
-    background-position: right;
+    width: 200px;
   }
 
   
