@@ -45,6 +45,7 @@ const Homepage = () => {
   const [chosenPassenger, setChosenPassenger] = useState([]);
   const [newPassenger, setNewPassenger] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
+  const [selectedIndex, setSelectedIndex] = useState();
   
 
   let totalPassengers = `${chosenPassenger.length} passager(s)`;
@@ -90,15 +91,14 @@ const Homepage = () => {
       setSpecificEndCity("")
     }
   };
-  
+
+
 
   /**  - function to modify a passenger */
-  const validateChosenPassenger = (i, selectedOption) => {
-    setSelectedOption(selectedOption)
+  const validateChosenPassenger = (value) => {
     let modifiedPassenger = [...chosenPassenger];
-    modifiedPassenger[i] = selectedOption;
+    modifiedPassenger[selectedIndex] = value;
     setChosenPassenger(modifiedPassenger)
-    setSelectedOption("")
   }
 
   /**  - function to add a passenger */
@@ -114,8 +114,6 @@ const Homepage = () => {
   const deletePassenger = (i) => {
     const temporaryPassenger = [...chosenPassenger]
     temporaryPassenger.splice(i, 1)
-    console.log(temporaryPassenger);
-    
     setChosenPassenger(temporaryPassenger)
   }
 
@@ -125,6 +123,9 @@ const Homepage = () => {
       getDataPopularCities()
     },[]);
     
+    useEffect(() => {
+
+    },[selectedIndex]);
 
    /**  - defining the current date  */  
     const currentStartDate = new Date()
@@ -243,6 +244,7 @@ const onChangeEnd = (date) => {
         deletePassenger = {deletePassenger}
         selectedOption = {selectedOption}
         setSelectedOption = {setSelectedOption}
+        setSelectedIndex = {setSelectedIndex}
        />;
       case "welcome":
         return <Welcome 
@@ -255,8 +257,9 @@ const onChangeEnd = (date) => {
 
 
     return (
-      
       <>
+      {console.log('selectedIndex', selectedIndex)}
+      {console.log('chosenPassenger', chosenPassenger)}
         <div className="HomepageContainer">
           <div className={activeScreen ? "cardFormFirst" : "cardForm"}>
           <Card>

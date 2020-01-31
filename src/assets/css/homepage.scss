@@ -94,7 +94,7 @@
   z-index: 30;
 }
 
-.eachPassenger {
+.eachPassenger, .newPassenger {
   border-bottom: solid 1px $grey;
   display: flex;
   align-items: center;
