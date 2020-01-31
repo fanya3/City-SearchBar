@@ -3,17 +3,18 @@
 ### Development
 
 Technologies used : React.js + Sass + react-calendar + Cypress.
-This app has been developped in 5 days.
+All commentaries done with jsDoc.
 The main searchbar is based on TrainLine search bar but the overall design has been made to fit Tictactrip graphic universe :)
 The homepage and the search bar are responsive and can be viewed on both mobile and desktop formats.
 
-### things that could be improved :)
+### Things that could be improved :)
 
-Passenger section needs to have the selection of train special card  linked to each passenger to calculate the price.
+Passenger section needs to be finalized, with the selection of train cards linked to each passenger to calculate the price.
 
 ### Modules
 
 This app uses react-calendar. more infos here : (https://www.npmjs.com/package/react-calendar)
+This app uses react-select. more infos here : (https://www.npmjs.com/package/react-select)
 
 ### Tests
 
