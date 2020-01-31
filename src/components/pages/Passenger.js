@@ -42,10 +42,10 @@ const Passenger = (props) => {
         <div key = {i} className="eachPassenger">
           <p> Passager {i+1}</p>  
           <Select
-            id = {i} 
             className="selectPassenger"
-            name="passengerType"
+            name="chosenPassenger"
             value={passenger}
+            onFocus={() => props.setSelectedIndex(i)}
             onChange={props.validateChosenPassenger}
             options={passengersTypes}
           />
@@ -56,7 +56,7 @@ const Passenger = (props) => {
           ) 
         }
   
-        <div className="eachPassenger" style = {props.newPassenger ? {display:"flex"} :{ display:"none"}} >
+        <div className="newPassenger" style = {props.newPassenger ? {display:"flex"} :{ display:"none"}} >
           <p> Nouveau Passager</p>  
           <Select
             className="selectNewPassenger"
