@@ -6,7 +6,9 @@ import axios from "axios";
 
 /** GET | /popular/5 | get a list of the 5 most popular cities on tictactrip */
 export const getPopularCities = () => {
-  return axios.get(`https://api.comparatrip.eu/cities/popular/5 `).then(res => {
+  return axios
+  .get(`https://api.comparatrip.eu/cities/popular/5 `)
+  .then(res => {
     console.log(`5 popular cities`, res.data);
     return res.data;
   });
@@ -17,8 +19,9 @@ export const getPopularCities = () => {
  */
 
 export const getSpecificCity = city => {
+  let cityname = city.toLowerCase()
   return axios
-    .get(`https://api.comparatrip.eu/cities/autocomplete/?q=${city}`)
+    .get(`https://api.comparatrip.eu/cities/autocomplete/?q=${cityname}`)
     .then(res => {
       console.log(`searched cities`, res.data);
       return res.data;
@@ -30,8 +33,9 @@ export const getSpecificCity = city => {
  */
 
 export const getCitiesFrom = city => {
+  let cityname = city.toLowerCase()
   return axios
-    .get(`https://api.comparatrip.eu/cities/popular/from/${city}/5`)
+    .get(`https://api.comparatrip.eu/cities/popular/from/${cityname}/5`)
     .then(res => {
       console.log(`5 popular cities from ${city}`, res.data);
       return res.data;
